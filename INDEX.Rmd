@@ -1,0 +1,50 @@
+---
+title: "Análisis de Covid-19 en Costa Rica"
+author: "Valery Murilo"
+date: '2022-05-11'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Presentación 
+Este documento presenta gráficos generados a partir de lo datos de covid-19  publicados por el Minsiterio de Salud [https://geovision.uned.ac.cr/oges/] (https://geovision.uned.ac.cr/oges/)
+```{r carga-datos}
+covid <- read.csv(file ="05_10_22_CSV_GENERAL.csv", sep=";")
+```
+
+## Entradas 
+
+## Procesamiento
+
+## Opciones generales 
+### Curación de  Datos
+```{r Conversión-fecha}
+covid$FECHA <- as.Date(covid$FECHA, format = "%d/%m/%Y")
+```
+```{r opciones-generales}
+options(scipen = 7)
+
+```
+
+
+## Salidas 
+
+### Gráficos 
+
+#### Casos acumuolados
+
+##### Positivos
+```{r casos-acumulados}
+plot(
+  covid$FECHA,
+  covid$positivos,
+  main =  "casos acumulados positivos de COVID-19 en Costa Rica" ,
+  xlab =  "fechha" ,
+  ylab = "casos"
+)
+
+```
+
